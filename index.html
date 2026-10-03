@@ -6,6 +6,7 @@
 <meta name="description" content="VA Direct — Full-service contract manufacturer and strategic sourcing partner. Injection molding, custom hardware, packaging, and logistics. Austin, Texas.">
 <title>VA Direct — Contract Manufacturing & Strategic Sourcing</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Syne:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -21,7 +22,7 @@
   --card:#FAFAF7;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;}
 
 /* ── NAV ── */
 nav{
@@ -36,10 +37,28 @@ nav{
 .nav-brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;}
 .nav-wordmark{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
 .nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-size:.72rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+.nav-links a{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--ink);}
-.nav-cta{font-size:.72rem;font-weight:700;color:var(--white);background:var(--ink);padding:.5rem 1.25rem;border-radius:999px;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--white);background:var(--ink);padding:.5rem 1.25rem;border-radius:999px;text-decoration:none;letter-spacing:.05em;transition:opacity .2s;}
 .nav-cta:hover{opacity:.75;}
+.nav-toggle{
+  display:none;
+  width:40px;height:40px;padding:0;
+  border:0.5px solid var(--line);border-radius:999px;
+  background:transparent;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.nav-toggle span{
+  display:block;width:16px;height:1.5px;background:var(--ink);border-radius:1px;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-toggle:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){
+  .nav-toggle span{transition:none;}
+}
 
 /* ── HERO ── */
 #hero{
@@ -63,35 +82,35 @@ nav{
 }
 .hero-tag{display:flex;align-items:center;gap:.65rem;margin-bottom:1.5rem;}
 .hero-tag-line{width:28px;height:1.5px;background:linear-gradient(90deg,var(--pink),var(--navy));}
-.hero-tag-text{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.hero-tag-text{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);}
 h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.07;letter-spacing:-.02em;color:var(--white);margin-bottom:1.4rem;}
 h1 em{font-style:italic;background:linear-gradient(135deg,var(--pink),var(--mid),var(--navy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-desc{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.8;max-width:360px;}
 .hero-right-block{display:flex;flex-direction:column;gap:1.8rem;justify-content:flex-end;}
 .hero-stats-card{background:rgba(255,255,255,.06);border:0.5px solid rgba(255,255,255,.12);border-radius:14px;padding:1.5rem 1.8rem;}
-.hero-stats-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;}
+.hero-stats-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;}
 .hero-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
 .hero-stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;color:white;letter-spacing:-.02em;}
 .hero-stat-lbl{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:.2rem;}
 .hero-actions{display:flex;gap:1rem;align-items:center;margin-top:2rem;}
 .btn-white{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);background:var(--white);border:none;padding:.7rem 1.5rem;border-radius:999px;text-decoration:none;letter-spacing:.04em;transition:opacity .2s;display:inline-block;}
 .btn-white:hover{opacity:.85;}
-.btn-outline-w{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;border:0.5px solid rgba(255,255,255,.25);padding:.65rem 1.3rem;border-radius:999px;transition:all .2s;display:inline-block;}
+.btn-outline-w{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;border:0.5px solid rgba(255,255,255,.25);padding:.65rem 1.3rem;border-radius:999px;transition:all .2s;display:inline-block;}
 .btn-outline-w:hover{color:var(--white);border-color:rgba(255,255,255,.6);}
 .hero-pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
-.hero-pill{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);border:0.5px solid rgba(255,255,255,.15);border-radius:999px;padding:.3rem .75rem;}
+.hero-pill{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);border:0.5px solid rgba(255,255,255,.15);border-radius:999px;padding:.3rem .75rem;}
 
 /* ── TICKER ── */
 .ticker{background:var(--ink);overflow:hidden;padding:.8rem 0;border-bottom:0.5px solid rgba(255,255,255,.08);}
 .ticker-track{display:flex;width:max-content;animation:ticker 34s linear infinite;}
-.ticker-item{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:0 2rem;white-space:nowrap;display:flex;align-items:center;gap:2rem;}
+.ticker-item{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:0 2rem;white-space:nowrap;display:flex;align-items:center;gap:2rem;}
 .t-dot{width:3px;height:3px;border-radius:50%;background:var(--pink);flex-shrink:0;}
 @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ── SECTION SCAFFOLD ── */
 section{padding:6.5rem 3rem;}
 .sec-inner{max-width:1100px;margin:0 auto;}
-.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;display:block;}
+.sec-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;display:block;}
 h2.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1.5rem;}
 h2.sec-title em{font-style:italic;}
 
@@ -115,7 +134,7 @@ h2.sec-title em{font-style:italic;}
 .mosaic-cell:hover img{transform:scale(1.04);}
 .mosaic-cell.tall{grid-row:span 2;}
 .mosaic-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.75) 0%,transparent 55%);display:flex;align-items:flex-end;padding:1.1rem 1.2rem;}
-.mosaic-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);}
+.mosaic-label{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);}
 
 /* ── SERVICES ── */
 #services{background:var(--bg);border-bottom:0.5px solid var(--line);}
@@ -125,7 +144,7 @@ h2.sec-title em{font-style:italic;}
 .svc-name{font-family:'Playfair Display',serif;font-size:1.2rem;letter-spacing:-.01em;margin-bottom:.4rem;}
 .svc-desc{font-size:.83rem;color:var(--muted);max-width:500px;line-height:1.7;}
 .svc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem;}
-.svc-tag{font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .65rem;border-radius:999px;border:0.5px solid var(--line);color:var(--muted);}
+.svc-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .65rem;border-radius:999px;border:0.5px solid var(--line);color:var(--muted);}
 .svc-arr{font-size:.95rem;color:var(--muted2);transition:transform .2s,color .2s;padding-top:.3rem;}
 .svc-row:hover .svc-arr{transform:translate(3px,-3px);color:var(--pink);}
 
@@ -144,7 +163,7 @@ h2.sec-title em{font-style:italic;}
 .parts-photo img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .4s;}
 .parts-photo:hover img{transform:scale(1.05);}
 .parts-photo.tall img{height:335px;}
-.parts-photo-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(13,13,13,.7),transparent);padding:.6rem .8rem;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+.parts-photo-label{font-family:'Syne',sans-serif;position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(13,13,13,.7),transparent);padding:.6rem .8rem;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);}
 
 /* ── INDUSTRIES ── */
 #industries{background:var(--bg);border-bottom:0.5px solid var(--line);}
@@ -159,7 +178,7 @@ h2.sec-title em{font-style:italic;}
 /* ── CASE STUDY ── */
 #casestudy{background:var(--ink);padding:6.5rem 3rem;}
 .cs-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-.cs-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.9rem;display:block;}
+.cs-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.9rem;display:block;}
 .cs-h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--white);margin-bottom:1.2rem;}
 .cs-h2 em{font-style:italic;color:var(--pink);}
 .cs-p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:1.8rem;}
@@ -182,7 +201,7 @@ h2.sec-title em{font-style:italic;}
 .office-cards{display:flex;flex-direction:column;gap:.8rem;margin-top:1.8rem;}
 .office-card{display:grid;grid-template-columns:auto 1fr;gap:1rem;background:var(--bg);border:0.5px solid var(--line);border-radius:10px;padding:1.1rem 1.2rem;align-items:start;}
 .office-flag{font-size:1.4rem;line-height:1;}
-.office-name{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem;}
+.office-name{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem;}
 .office-desc{font-size:.75rem;color:var(--muted);line-height:1.6;}
 .global-img-wrap{border-radius:14px;overflow:hidden;min-height:380px;}
 .global-img-wrap img{width:100%;height:100%;min-height:380px;object-fit:cover;display:block;}
@@ -195,12 +214,12 @@ h2.sec-title em{font-style:italic;}
 .contact-left p{font-size:.9rem;color:#555;line-height:1.85;margin-bottom:1.8rem;}
 .contact-details{display:flex;flex-direction:column;gap:.7rem;}
 .c-row{display:flex;align-items:baseline;gap:.75rem;font-size:.82rem;}
-.c-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);min-width:60px;}
+.c-lbl{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);min-width:60px;}
 .c-val{color:var(--muted);}
 .contact-form{display:flex;flex-direction:column;gap:1rem;}
 .f-grp{display:flex;flex-direction:column;gap:.3rem;}
-.f-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-.f-in{background:var(--white);border:0.5px solid var(--line);border-radius:8px;padding:.68rem 1rem;font-family:'Syne',sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .2s;width:100%;}
+.f-lbl{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.f-in{background:var(--white);border:0.5px solid var(--line);border-radius:8px;padding:.68rem 1rem;font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .2s;width:100%;}
 .f-in:focus{border-color:var(--pink);}
 .f-in::placeholder{color:var(--muted2);}
 textarea.f-in{resize:vertical;min-height:95px;}
@@ -219,10 +238,38 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;}
-  .hero-inner{grid-template-columns:1fr;padding:8rem 1.5rem 4rem;}
-  .hero-right-block{display:none;}
+  nav{padding:1rem 1.5rem;column-gap:.7rem;}
+  .nav-toggle{display:inline-flex;margin-left:auto;}
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:73px;left:0;right:0;bottom:0;
+    z-index:199;
+    flex-direction:column;
+    gap:0;
+    margin:0;
+    padding:0 1.5rem 2.5rem;
+    background:var(--bg);
+    overflow:auto;
+    border-top:0.5px solid var(--line);
+  }
+  .nav-links.is-open{display:flex;}
+  body.nav-open{overflow:hidden;}
+  .nav-links a{
+    display:block;
+    padding:1.05rem 0;
+    border-bottom:0.5px solid var(--line);
+    color:var(--ink);
+    letter-spacing:.12em;
+    font-size:.78rem;
+  }
+  .nav-links a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+  .hero-inner{grid-template-columns:1fr;padding:7.5rem 1.5rem 3.5rem;gap:2rem;}
+  .hero-right-block{display:flex;}
+  .hero-stats-card{padding:1.15rem 1.2rem;}
+  .hero-stat-num{font-size:1.55rem;}
+  .hero-desc{max-width:none;}
+  .hero-actions{flex-wrap:wrap;}
   section{padding:4rem 1.5rem;}
   #parts{padding:4rem 1.5rem;}
   .what-grid,.parts-inner,.contact-inner,.cs-inner,.global-grid{grid-template-columns:1fr;gap:2.5rem;}
@@ -263,7 +310,10 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
     </svg>
     <span class="nav-wordmark">VA DIRECT</span>
   </a>
-  <ul class="nav-links">
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="site-nav">
     <li><a href="#what">Capabilities</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#industries">Industries</a></li>
@@ -333,14 +383,14 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
         <p>Think of us as your offshore manufacturing team, with local account management in Austin, Texas. No surprises, no middlemen, no compromises on quality.</p>
         <div class="capability-grid">
           <div class="cap-card">
-            <img class="cap-img" src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&q=75" alt="Injection molding machine" loading="lazy">
+            <img class="cap-img" src="https://images.unsplash.com/photo-1730705788367-dbd288c40ee7?w=400&q=75" alt="Injection molding machine" loading="lazy">
             <div class="cap-body">
               <div class="cap-title">Injection Molding</div>
               <div class="cap-desc">Plastic, silicone, rubber & metal. From prototype to millions of units.</div>
             </div>
           </div>
           <div class="cap-card">
-            <img class="cap-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=75" alt="Factory production line" loading="lazy">
+            <img class="cap-img" src="images/mass-production.jpg" alt="Injection molding production line" loading="lazy">
             <div class="cap-body">
               <div class="cap-title">Mass Production</div>
               <div class="cap-desc">High-volume runs with consistent quality across complex programs.</div>
@@ -363,23 +413,23 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
 <div id="photostory">
   <div class="photo-mosaic">
     <div class="mosaic-cell tall">
-      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=700&q=80" alt="Mold shop floor" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1756743209518-292626ae3b9d?w=700&q=80" alt="Mold shop floor" loading="lazy">
       <div class="mosaic-overlay"><span class="mosaic-label">Mold shop floor</span></div>
     </div>
     <div class="mosaic-cell">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=75" alt="Precision components" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1625465104349-586defbbd3d8?w=500&q=75" alt="Precision components" loading="lazy">
       <div class="mosaic-overlay"><span class="mosaic-label">Precision components</span></div>
     </div>
     <div class="mosaic-cell">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=75" alt="Hardware fasteners" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1703868671123-3deab40f66c4?w=500&q=75" alt="Hardware fasteners" loading="lazy">
       <div class="mosaic-overlay"><span class="mosaic-label">Hardware & fasteners</span></div>
     </div>
     <div class="mosaic-cell">
-      <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=500&q=75" alt="Production line" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1716643863806-989dd76ae093?w=500&q=75" alt="Production line" loading="lazy">
       <div class="mosaic-overlay"><span class="mosaic-label">Production line</span></div>
     </div>
     <div class="mosaic-cell">
-      <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=500&q=75" alt="Quality inspection" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1758873263563-5ba4aa330799?w=500&q=75" alt="Quality inspection" loading="lazy">
       <div class="mosaic-overlay"><span class="mosaic-label">Quality inspection</span></div>
     </div>
   </div>
@@ -471,21 +521,21 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
     <div class="parts-photo-grid fi">
       <div class="parts-col">
         <div class="parts-photo tall">
-          <img src="https://images.unsplash.com/photo-1615473967657-9dc21773070e?w=400&q=80" alt="Screws and fasteners" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1564226591723-659ff3852b2a?w=400&q=80" alt="Screws and fasteners" loading="lazy">
           <div class="parts-photo-label">Screws & fasteners</div>
         </div>
         <div class="parts-photo">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=75" alt="Custom packaging" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?w=400&q=75" alt="Custom packaging" loading="lazy">
           <div class="parts-photo-label">Custom packaging</div>
         </div>
       </div>
       <div class="parts-col">
         <div class="parts-photo">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75" alt="Molded components" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1625465404484-448f58e5c5d9?w=400&q=75" alt="Molded components" loading="lazy">
           <div class="parts-photo-label">Molded components</div>
         </div>
         <div class="parts-photo tall">
-          <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&q=80" alt="Quality control" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1745571479548-7e8c708c4eb0?w=400&q=80" alt="Quality control" loading="lazy">
           <div class="parts-photo-label">Quality control</div>
         </div>
       </div>
@@ -502,7 +552,7 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
     </div>
     <div class="ind-grid fi">
       <div class="ind-card">
-        <img class="ind-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=75" alt="Telecom" loading="lazy">
+        <img class="ind-img" src="https://images.unsplash.com/photo-1680691257251-5fead813b73e?w=400&q=75" alt="Telecom" loading="lazy">
         <div class="ind-body"><div class="ind-name">Telecommunications</div><div class="ind-note">Fiber optic housings, terminal boxes, enclosures & network infrastructure parts.</div></div>
       </div>
       <div class="ind-card">
@@ -510,7 +560,7 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
         <div class="ind-body"><div class="ind-name">Automotive</div><div class="ind-note">Bumpers, grilles, step bars, interior brackets & high-durability structural parts.</div></div>
       </div>
       <div class="ind-card">
-        <img class="ind-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=75" alt="Industrial" loading="lazy">
+        <img class="ind-img" src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&q=75" alt="Industrial" loading="lazy">
         <div class="ind-body"><div class="ind-name">Industrial</div><div class="ind-note">Enclosures, control panels, custom assemblies & precision industrial components.</div></div>
       </div>
       <div class="ind-card">
@@ -526,21 +576,21 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
   <div class="cs-inner">
     <div class="fi">
       <span class="cs-label">Case study</span>
-      <h2 class="cs-h2">How we cut costs <em>60%</em> without cutting corners</h2>
-      <p class="cs-p">A US manufacturer faced crushing tariffs on fully-assembled terminal boxes imported from China. We redesigned their sourcing strategy — shifting to component-level procurement, local assembly, and a completely new tariff classification.</p>
+      <h2 class="cs-h2">How we cut landed cost <em>without</em> cutting corners</h2>
+      <p class="cs-p">A US manufacturer was importing finished assemblies and paying for it twice: in the unit price, and again at the border. We rebuilt the program around components, tooling, and a cleaner path through customs, and kept quality where it was.</p>
       <div class="cs-nums">
-        <div class="cs-num-card"><div class="cs-big">&gt;60%</div><div class="cs-lbl">Cost reduction</div></div>
-        <div class="cs-num-card"><div class="cs-big">$0</div><div class="cs-lbl">Tariff exposure</div></div>
-        <div class="cs-num-card"><div class="cs-big">500K+</div><div class="cs-lbl">Units delivered</div></div>
-        <div class="cs-num-card"><div class="cs-big">Multi</div><div class="cs-lbl">Concurrent projects</div></div>
+        <div class="cs-num-card"><div class="cs-big">Lower</div><div class="cs-lbl">Landed cost</div></div>
+        <div class="cs-num-card"><div class="cs-big">Less</div><div class="cs-lbl">Duty exposure</div></div>
+        <div class="cs-num-card"><div class="cs-big">Volume</div><div class="cs-lbl">Production, ongoing</div></div>
+        <div class="cs-num-card"><div class="cs-big">Several</div><div class="cs-lbl">Programs at once</div></div>
       </div>
     </div>
     <div class="cs-steps fi">
-      <div class="cs-step"><div class="cs-step-n">1</div><div class="cs-step-t"><strong>Problem diagnosed.</strong> High tariffs on complete assemblies were eroding unit margin on every product sold in the US.</div></div>
-      <div class="cs-step"><div class="cs-step-n">2</div><div class="cs-step-t"><strong>Strategy redesigned.</strong> VA Direct conducted a part-level sourcing audit, identifying components importable at a lower tariff classification.</div></div>
-      <div class="cs-step"><div class="cs-step-n">3</div><div class="cs-step-t"><strong>Molds developed.</strong> Custom tooling designed and fabricated in China. DFM ensured clean local assembly at the US facility.</div></div>
-      <div class="cs-step"><div class="cs-step-n">4</div><div class="cs-step-t"><strong>Production scaled.</strong> 500,000+ units produced across multiple projects with consistent quality and on-time delivery.</div></div>
-      <div class="cs-step"><div class="cs-step-n">5</div><div class="cs-step-t"><strong>Ongoing partnership.</strong> Client relies on VA Direct for every new product introduction, sourcing, and supply chain management.</div></div>
+      <div class="cs-step"><div class="cs-step-n">1</div><div class="cs-step-t"><strong>Problem diagnosed.</strong> Finished goods were crossing the border as complete assemblies, and the duty was eating the margin.</div></div>
+      <div class="cs-step"><div class="cs-step-n">2</div><div class="cs-step-t"><strong>Strategy redesigned.</strong> A part-level look at the product showed which pieces could be sourced and classified on their own.</div></div>
+      <div class="cs-step"><div class="cs-step-n">3</div><div class="cs-step-t"><strong>Tooling built.</strong> Molds were designed and made for the custom parts, with DFM so assembly stayed straightforward.</div></div>
+      <div class="cs-step"><div class="cs-step-n">4</div><div class="cs-step-t"><strong>Production scaled.</strong> Trial runs came first. Once the parts held up, the program moved into steady volume.</div></div>
+      <div class="cs-step"><div class="cs-step-n">5</div><div class="cs-step-t"><strong>Ongoing partnership.</strong> The same team stayed on for later products, sourcing, and the supply chain around them.</div></div>
     </div>
   </div>
 </section>
@@ -550,7 +600,7 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
   <div class="sec-inner">
     <div class="global-grid fi">
       <div class="global-img-wrap">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="Global manufacturing operations" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=700&q=80" alt="Global manufacturing operations" loading="lazy">
       </div>
       <div class="global-right">
         <span class="sec-label">Global footprint</span>
@@ -586,17 +636,17 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
         <h2>Tell us what you <em>need to make</em></h2>
         <p>Whether you're sourcing a single component, launching a new product, or trying to reduce manufacturing costs — we'd love to hear about it. Response within one business day.</p>
         <div class="contact-details">
-          <div class="c-row"><span class="c-lbl">Contact</span><span class="c-val">Tony Pan</span></div>
+          <div class="c-row"><span class="c-lbl">Contact</span><span class="c-val">Sales</span></div>
           <div class="c-row"><span class="c-lbl">Email</span><span class="c-val">sales@vadirectllc.com</span></div>
           <div class="c-row"><span class="c-lbl">Location</span><span class="c-val">Austin, Texas, USA</span></div>
           <div class="c-row"><span class="c-lbl">Hours</span><span class="c-val">Mon–Fri, 8am–6pm CST</span></div>
         </div>
       </div>
       <form class="contact-form fi" onsubmit="return false;">
-        <div class="f-grp"><label class="f-lbl">Your name</label><input type="text" class="f-in" placeholder="Jane Smith"></div>
-        <div class="f-grp"><label class="f-lbl">Company</label><input type="text" class="f-in" placeholder="Acme Manufacturing Co."></div>
-        <div class="f-grp"><label class="f-lbl">Email</label><input type="email" class="f-in" placeholder="jane@company.com"></div>
-        <div class="f-grp"><label class="f-lbl">What do you need to make?</label><textarea class="f-in" placeholder="e.g. 50,000 plastic enclosures + screws + custom packaging per quarter..."></textarea></div>
+        <div class="f-grp"><label class="f-lbl">Your name</label><input type="text" class="f-in" placeholder="Your name"></div>
+        <div class="f-grp"><label class="f-lbl">Company</label><input type="text" class="f-in" placeholder="Company name"></div>
+        <div class="f-grp"><label class="f-lbl">Email</label><input type="email" class="f-in" placeholder="name@company.com"></div>
+        <div class="f-grp"><label class="f-lbl">What do you need to make?</label><textarea class="f-in" placeholder="Part, material, quantity, and timeline"></textarea></div>
         <button class="f-submit">Send message →</button>
       </form>
     </div>
@@ -632,6 +682,30 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('site-nav');
+    if (!btn || !menu) return;
+    function setOpen(open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
+    }
+    btn.addEventListener('click', function () {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+  })();
 </script>
 
 </body>
