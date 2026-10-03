@@ -294,6 +294,8 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
   .cs-nums{grid-template-columns:1fr 1fr;}
   footer{flex-direction:column;align-items:flex-start;padding:1.5rem;}
 }
+.form-note{margin-top:.9rem;font-size:.95rem;line-height:1.5;color:var(--ink);}
+.form-note.is-error{color:#8a3048;}
 </style>
 </head>
 <body>
@@ -636,12 +638,14 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
           <div class="c-row"><span class="c-lbl">Hours</span><span class="c-val">Mon–Fri, 8am–6pm CST</span></div>
         </div>
       </div>
-      <form class="contact-form fi" onsubmit="return false;">
-        <div class="f-grp"><label class="f-lbl">Your name</label><input type="text" class="f-in" placeholder="Your name"></div>
-        <div class="f-grp"><label class="f-lbl">Company</label><input type="text" class="f-in" placeholder="Company name"></div>
-        <div class="f-grp"><label class="f-lbl">Email</label><input type="email" class="f-in" placeholder="name@company.com"></div>
-        <div class="f-grp"><label class="f-lbl">What do you need to make?</label><textarea class="f-in" placeholder="Part, material, quantity, and timeline"></textarea></div>
-        <button class="f-submit">Send message →</button>
+      <form class="contact-form fi" id="contact-form">
+        <div class="f-grp"><label class="f-lbl" for="c-name">Your name</label><input id="c-name" name="name" type="text" class="f-in" placeholder="Your name" required></div>
+        <div class="f-grp"><label class="f-lbl" for="c-company">Company</label><input id="c-company" name="company" type="text" class="f-in" placeholder="Company name"></div>
+        <div class="f-grp"><label class="f-lbl" for="c-email">Email</label><input id="c-email" name="email" type="email" class="f-in" placeholder="name@company.com" required></div>
+        <div class="f-grp"><label class="f-lbl" for="c-need">What do you need to make?</label><textarea id="c-need" name="message" class="f-in" placeholder="Part, material, quantity, and timeline" required></textarea></div>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button class="f-submit" type="submit">Send message →</button>
+        <p class="form-note" id="form-note" role="status" hidden></p>
       </form>
     </div>
   </div>
@@ -688,6 +692,44 @@ footer{background:var(--ink);padding:1.5rem 3rem;display:flex;justify-content:sp
         setOpen(false);
         btn.focus();
       }
+    });
+  })();
+
+  (function () {
+    var form = document.getElementById('contact-form');
+    var note = document.getElementById('form-note');
+    var btn = form && form.querySelector('.f-submit');
+    if (!form || !note || !btn) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      var label = btn.textContent;
+      btn.textContent = 'Sending…';
+      note.hidden = true;
+      note.classList.remove('is-error');
+      var data = new FormData(form);
+      data.append('_subject', 'New inquiry from vadirectllc.com');
+      data.append('_captcha', 'false');
+      data.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/sales@vadirectllc.com', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        return res.json().then(function (body) { return { ok: res.ok, body: body }; });
+      }).then(function (result) {
+        if (!result.ok) throw new Error((result.body && result.body.message) || 'send failed');
+        form.reset();
+        note.textContent = 'Message sent. We’ll reply at the earliest convenience.';
+        note.hidden = false;
+      }).catch(function () {
+        note.textContent = 'Something went wrong. Please email sales@vadirectllc.com and we’ll get back to you.';
+        note.classList.add('is-error');
+        note.hidden = false;
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+      });
     });
   })();
 </script>
